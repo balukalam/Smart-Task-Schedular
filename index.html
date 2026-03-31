@@ -1,56 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Task Scheduler</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8">
+<title>Smart Task Scheduler</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<h1>📋 Smart Task Scheduler</h1>
 
-    <h1>📋 Smart Task Scheduler</h1>
-    <div class="dashboard">
-    <div class="card total">📋 Total: {{ total }}</div>
-    <div class="card completed">✅ Completed: {{ completed }}</div>
-    <div class="card pending">⏳ Pending: {{ pending }}</div>
-    <div class="card progress">🔄 In Progress: {{ progress }}</div>
+<div class="stats">
+    <p>Total: <span id="total">0</span></p>
+    <p>✅ Completed: <span id="completed">0</span></p>
+    <p>⏳ Pending: <span id="pending">0</span></p>
+    <p>🚀 In Progress: <span id="progress">0</span></p>
 </div>
 
-    <a href="/add" class="btn">➕ Add Task</a>
-    <a href="/calendar" class="btn">📅 View Calendar</a>
+<hr>
 
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Priority</th>
-            <th>Status</th>
-            
-            <th>Action</th>
-        </tr>
+<h2>Add Task</h2>
 
-        {% for task in tasks %}
-        <tr>
-            <td>{{ task[1] }}</td>
-            <td>{{ task[2] }}</td>
-            <td>{{ task[3] }}</td>
-            <td class="{{ task[4] }}">{{ task[4] }}</td>
-            <td>{{ task[5] }}</td>
-            
-            <td>
-                <a href="/edit/{{ task[0] }}" class="edit">Edit</a>
-                <a href="/delete/{{ task[0] }}" class="delete">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+<input type="text" id="taskInput" placeholder="Enter task">
+<input type="date" id="dateInput">
+<input type="time" id="timeInput">
 
-</div>
-<script>
-    const tasks = {{ tasks | tojson }};
-</script>
+<select id="priorityInput">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+</select>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<select id="statusInput">
+    <option>Pending</option>
+    <option>In Progress</option>
+    <option>Completed</option>
+</select>
+
+<button onclick="addTask()">Add Task</button>
+
+<hr>
+
+<h2>Task List</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Task</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+<tbody id="taskTable"></tbody>
+
+</table>
+
+<script src="script.js"></script>
+
 </body>
 </html>
