@@ -7,58 +7,64 @@
 </head>
 <body>
 
-<h1>📋 Smart Task Scheduler</h1>
+<div class="container">
 
+<h1>🚀 Smart Task Scheduler</h1>
+
+<!-- Stats -->
 <div class="stats">
-    <p>Total: <span id="total">0</span></p>
-    <p>✅ Completed: <span id="completed">0</span></p>
-    <p>⏳ Pending: <span id="pending">0</span></p>
-    <p>🚀 In Progress: <span id="progress">0</span></p>
+    <div>Total <span id="total">0</span></div>
+    <div>✅ <span id="completed">0</span></div>
+    <div>⏳ <span id="pending">0</span></div>
+    <div>🚀 <span id="progress">0</span></div>
 </div>
 
-<hr>
+<!-- Progress Bar -->
+<div class="progress-bar">
+    <div id="progressFill"></div>
+</div>
 
-<h2>Add Task</h2>
+<!-- Search -->
+<input type="text" id="searchInput" placeholder="🔍 Search task..." onkeyup="displayTasks()">
 
-<input type="text" id="taskInput" placeholder="Enter task">
+<!-- Add Task -->
+<div class="form">
+<input type="text" id="taskInput" placeholder="Task">
 <input type="date" id="dateInput">
 <input type="time" id="timeInput">
 
 <select id="priorityInput">
-    <option>Low</option>
-    <option>Medium</option>
-    <option>High</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
 </select>
 
 <select id="statusInput">
-    <option>Pending</option>
-    <option>In Progress</option>
-    <option>Completed</option>
+<option>Pending</option>
+<option>In Progress</option>
+<option>Completed</option>
 </select>
 
-<button onclick="addTask()">Add Task</button>
+<button onclick="addTask()">➕ Add</button>
+</div>
 
-<hr>
-
-<h2>Task List</h2>
-
+<!-- Table -->
 <table>
 <thead>
 <tr>
-    <th>Task</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Priority</th>
-    <th>Status</th>
-    <th>Action</th>
+<th>Task</th>
+<th>Date</th>
+<th>Time</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Action</th>
 </tr>
 </thead>
-
 <tbody id="taskTable"></tbody>
-
 </table>
 
-<script src="script.js"></script>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
