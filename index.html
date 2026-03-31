@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Scheduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📋 Smart Task Scheduler</h1>
+    <div class="dashboard">
+    <div class="card total">📋 Total: {{ total }}</div>
+    <div class="card completed">✅ Completed: {{ completed }}</div>
+    <div class="card pending">⏳ Pending: {{ pending }}</div>
+    <div class="card progress">🔄 In Progress: {{ progress }}</div>
+</div>
+
+    <a href="/add" class="btn">➕ Add Task</a>
+    <a href="/calendar" class="btn">📅 View Calendar</a>
+
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Priority</th>
+            <th>Status</th>
+            
+            <th>Action</th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+            <td>{{ task[3] }}</td>
+            <td class="{{ task[4] }}">{{ task[4] }}</td>
+            <td>{{ task[5] }}</td>
+            
+            <td>
+                <a href="/edit/{{ task[0] }}" class="edit">Edit</a>
+                <a href="/delete/{{ task[0] }}" class="delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+<script>
+    const tasks = {{ tasks | tojson }};
+</script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

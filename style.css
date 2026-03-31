@@ -1,0 +1,158 @@
+body {
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #22c55e;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #1e293b;
+}
+
+tr {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+.Low {
+    color: #22c55e;
+}
+
+.Medium {
+    color: #facc15;
+}
+
+.High {
+    color: #ef4444;
+}
+
+/* Progress Bar */
+
+
+/* Buttons */
+.edit {
+    color: #38bdf8;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.delete {
+    color: #ef4444;
+    text-decoration: none;
+}
+.calendar td {
+    padding: 15px;
+}
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.card {
+    padding: 15px;
+    border-radius: 10px;
+    width: 22%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.total {
+    background: #3b82f6;
+}
+
+.completed {
+    background: #22c55e;
+}
+
+.pending {
+    background: #facc15;
+}
+
+.progress {
+    background: #a855f7;
+}
+/* FORM DESIGN */
+.form-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 60px;
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #334155;
+    color: white;
+}
+
+button.btn {
+    margin-top: 20px;
+    background: #22c55e;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background: #16a34a;
+}
+
+.back {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: #38bdf8;
+    text-decoration: none;
+}
