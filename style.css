@@ -1,45 +1,70 @@
 body {
-    font-family: Arial;
-    background: #0f172a;
+    font-family: 'Segoe UI';
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
     text-align: center;
 }
 
-h1 {
-    margin-top: 20px;
+.container {
+    width: 90%;
+    margin: auto;
 }
 
-input, select, button {
-    padding: 8px;
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 10px;
+    background: #333;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #22c55e;
+    border-radius: 10px;
+}
+
+input, select {
+    padding: 10px;
     margin: 5px;
+    border-radius: 10px;
+    border: none;
 }
 
 button {
-    background: #22c55e;
+    padding: 10px 15px;
+    border-radius: 10px;
     border: none;
+    background: #22c55e;
     color: white;
     cursor: pointer;
 }
 
-button:hover {
-    background: #16a34a;
-}
-
 table {
     margin: auto;
+    width: 95%;
     border-collapse: collapse;
-    width: 90%;
+    margin-top: 20px;
 }
 
 th, td {
-    border: 1px solid #ccc;
     padding: 10px;
 }
 
-th {
-    background: #1e293b;
+tr {
+    background: rgba(255,255,255,0.05);
 }
 
-.stats {
-    margin: 20px;
-}
+.low { color: #22c55e; }
+.medium { color: #facc15; }
+.high { color: #ef4444; }
