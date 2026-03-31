@@ -14,23 +14,32 @@ function updateStats() {
     document.getElementById("completed").innerText = completed;
     document.getElementById("pending").innerText = pending;
     document.getElementById("progress").innerText = progress;
+
+    let percent = total === 0 ? 0 : (completed / total) * 100;
+    document.getElementById("progressFill").style.width = percent + "%";
 }
 
 function displayTasks() {
     let table = document.getElementById("taskTable");
+    let search = document.getElementById("searchInput").value.toLowerCase();
+
     table.innerHTML = "";
 
-    tasks.forEach((task, index) => {
+    tasks
+    .filter(task => task.name.toLowerCase().includes(search))
+    .forEach((task, index) => {
+
+        let priorityClass = task.priority.toLowerCase();
+
         table.innerHTML += `
         <tr>
             <td>${task.name}</td>
             <td>${task.date}</td>
             <td>${task.time}</td>
-            <td>${task.priority}</td>
+            <td class="${priorityClass}">${task.priority}</td>
             <td>${task.status}</td>
             <td>
-                <button onclick="editTask(${index})">Edit</button>
-                <button onclick="deleteTask(${index})">Delete</button>
+                <button onclick="deleteTask(${index})">❌</button>
             </td>
         </tr>`;
     });
@@ -41,13 +50,13 @@ function displayTasks() {
 function addTask() {
     let name = document.getElementById("taskInput").value;
 
-    if (name === "") {
+    if (!name) {
         alert("Enter task!");
         return;
     }
 
     let task = {
-        name: name,
+        name,
         date: document.getElementById("dateInput").value,
         time: document.getElementById("timeInput").value,
         priority: document.getElementById("priorityInput").value,
@@ -57,21 +66,14 @@ function addTask() {
     tasks.push(task);
     saveTasks();
     displayTasks();
+
+    document.getElementById("taskInput").value = "";
 }
 
 function deleteTask(index) {
     tasks.splice(index, 1);
     saveTasks();
     displayTasks();
-}
-
-function editTask(index) {
-    let newTask = prompt("Edit task:", tasks[index].name);
-    if (newTask) {
-        tasks[index].name = newTask;
-        saveTasks();
-        displayTasks();
-    }
 }
 
 displayTasks();
